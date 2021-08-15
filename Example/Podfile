@@ -1,0 +1,14 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'Zelda_Example' do
+  pod 'Zelda', :path => '../'
+  pod 'Masonry'
+
+  target 'Zelda_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end

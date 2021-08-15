@@ -1,0 +1,39 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - Masonry (1.1.0)
+  - Yoga (1.14.0)
+  - YogaKit (1.18.1):
+    - Yoga (~> 1.14)
+  - Zelda (0.1.0):
+    - YogaKit (~> 1.7)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - Masonry
+  - Zelda (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+    - Masonry
+    - Yoga
+    - YogaKit
+
+EXTERNAL SOURCES:
+  Zelda:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
+  YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
+  Zelda: 1ea7b3a3b34f59a956103c5afcd841ead9221309
+
+PODFILE CHECKSUM: 34f0a9ba35007ddf7b3f2e1f536b59a37e4c93f0
+
+COCOAPODS: 1.10.0
