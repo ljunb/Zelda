@@ -22,7 +22,7 @@ pod 'Zelda'
 
 ## Author
 
-ljunb, linjb@xiaopeng.com
+ljunb, cookiejlim@gmail.com
 
 ## License
 
