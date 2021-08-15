@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Zelda'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Zelda是一个支持链式语法的FlexBox布局库。'
   s.description      = <<-DESC
                        Zelda是一个支持链式语法的FlexBox布局库，是针对YogaKit的二次封装，可以快速的让iOS原生开发人员使用FlexBox技术进行
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
                        DESC
   s.homepage         = 'https://github.com/ljunb/Zelda'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'ljunb' => 'cookiejlim@gmail.com' }
+  s.author           = { 'ljunb' => '824771861@qq.com' }
   s.source           = { :git => 'https://github.com/ljunb/Zelda.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
