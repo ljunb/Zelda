@@ -8,7 +8,7 @@ PODS:
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
-  - Zelda (0.1.0):
+  - Zelda (0.2.0):
     - YogaKit (~> 1.7)
 
 DEPENDENCIES:
@@ -32,7 +32,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
-  Zelda: 1ea7b3a3b34f59a956103c5afcd841ead9221309
+  Zelda: 0df446ae581f60f6e18ed1bb694aa8fddc046378
 
 PODFILE CHECKSUM: 34f0a9ba35007ddf7b3f2e1f536b59a37e4c93f0
 

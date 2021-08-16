@@ -6,13 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZELLayout.h"
+#import "ZDLayout.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (Zelda)
 
-@property (nonatomic, readonly, strong) ZELLayout *zelda;
+@property (nonatomic, readonly, strong) ZDLayout *zelda;
 
 @end
 

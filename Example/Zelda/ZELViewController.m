@@ -24,8 +24,8 @@
     [self.view addSubview:container];
     container
         .zelda
-        .flexDirection(ZFlexDirectionRow)
-        .alignItems(YGAlignCenter)
+        .flexDirection(ZDFlexDirectionRow)
+        .alignItems(ZDAlignCenter)
         .margin(100)
         .height(100)
         .width(100);
@@ -40,7 +40,7 @@
     [container addSubview:view2];
     view2.zelda.height(30).width(30).marginHorizontal(10);
 
-    [container.zelda apply];
+    [container.zelda applyLayout];
 }
 
 - (void)didReceiveMemoryWarning

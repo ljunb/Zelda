@@ -12,10 +12,10 @@ static const void *kZeldaAssociatedKey = &kZeldaAssociatedKey;
 
 @implementation UIView (Zelda)
 
-- (ZELLayout *)zelda {
-    ZELLayout *zelda = objc_getAssociatedObject(self, kZeldaAssociatedKey);
+- (ZDLayout *)zelda {
+    ZDLayout *zelda = objc_getAssociatedObject(self, kZeldaAssociatedKey);
     if (!zelda) {
-        zelda = [ZELLayout layoutWithView:self];
+        zelda = [ZDLayout layoutWithView:self];
         objc_setAssociatedObject(self, kZeldaAssociatedKey, zelda, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return zelda;
