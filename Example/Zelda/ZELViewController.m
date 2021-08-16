@@ -24,8 +24,7 @@
     [self.view addSubview:container];
     container
         .zelda
-        .flexDirection(YGFlexDirectionRow)
-        .justifyContent(YGJustifySpaceAround)
+        .flexDirection(ZFlexDirectionRow)
         .alignItems(YGAlignCenter)
         .margin(100)
         .height(100)
@@ -39,7 +38,7 @@
     UIView *view2 = [UIView new];
     view2.backgroundColor = UIColor.blueColor;
     [container addSubview:view2];
-    view2.zelda.height(30).width(30);
+    view2.zelda.height(30).width(30).marginHorizontal(10);
 
     [container.zelda apply];
 }
