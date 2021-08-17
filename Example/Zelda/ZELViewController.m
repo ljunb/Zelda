@@ -27,18 +27,18 @@
         .flexDirection(ZDFlexDirectionRow)
         .alignItems(ZDAlignCenter)
         .margin(100)
-        .height(100)
-        .width(100);
+        .height(200)
+        .width(200);
     
     UIView *view1 = [UIView new];
     view1.backgroundColor = UIColor.grayColor;
     [container addSubview:view1];
-    view1.zelda.height(30).width(30);
-
+    view1.zelda.per_width(30).height(20);
+    
     UIView *view2 = [UIView new];
     view2.backgroundColor = UIColor.blueColor;
     [container addSubview:view2];
-    view2.zelda.height(30).width(30).marginHorizontal(10);
+    view2.zelda.per_width(70).height(40);
 
     [container.zelda applyLayout];
 }

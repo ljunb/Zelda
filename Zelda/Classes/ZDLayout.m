@@ -8,23 +8,38 @@
 #import "ZDLayout.h"
 #import <YogaKit/UIView+Yoga.h>
 
-#define ZELDA_YGVALUE_PROPERTY(property)                     \
+#define ZELDA_YGVALUE_PROPERTY_GETTER(property)              \
 - (ZDLayout * _Nonnull (^)(CGFloat))property {               \
     return ^(CGFloat value){                                 \
         self.view.yoga.property = YGPointValue(value);       \
         return self;                                         \
     };                                                       \
+}                                                            \
+- (CGFloat)zd_##property {                                   \
+    return self.view.yoga.property.value;                    \
 }
 
-#define ZELDA_FLOAT_PROPERTY(property)                       \
+#define ZELDA_YGPERCENTVALUE_PROPERTY_GETTER(property)       \
+- (ZDLayout * _Nonnull (^)(CGFloat))per_##property {         \
+    return ^(CGFloat value){                                 \
+        self.view.yoga.property = YGPercentValue(value);     \
+        return self;                                         \
+    };                                                       \
+}                                                            \
+ZELDA_YGVALUE_PROPERTY_GETTER(property)
+
+#define ZELDA_FLOAT_PROPERTY_GETTER(property)                \
 - (ZDLayout * _Nonnull (^)(CGFloat))property {               \
     return ^(CGFloat value){                                 \
         self.view.yoga.property = value;                     \
         return self;                                         \
     };                                                       \
+}                                                            \
+- (CGFloat)zd_##property {                                   \
+    return self.view.yoga.property;                          \
 }
 
-#define ZELDA_ALIGN_PROPERTY(property)                          \
+#define ZELDA_ALIGN_PROPERTY_GETTER(property)                   \
 - (ZDLayout * _Nonnull (^)(ZDAlign))property {                  \
     return ^(ZDAlign value) {                                   \
         switch (value) {                                        \
@@ -203,56 +218,56 @@
     };
 }
 
-ZELDA_ALIGN_PROPERTY(alignContent);
-ZELDA_ALIGN_PROPERTY(alignItems);
-ZELDA_ALIGN_PROPERTY(alignSelf);
+ZELDA_ALIGN_PROPERTY_GETTER(alignContent);
+ZELDA_ALIGN_PROPERTY_GETTER(alignItems);
+ZELDA_ALIGN_PROPERTY_GETTER(alignSelf);
 
-ZELDA_FLOAT_PROPERTY(flex);
-ZELDA_FLOAT_PROPERTY(flexGrow);
-ZELDA_FLOAT_PROPERTY(flexShrink);
-ZELDA_YGVALUE_PROPERTY(flexBasis);
+ZELDA_FLOAT_PROPERTY_GETTER(flex);
+ZELDA_FLOAT_PROPERTY_GETTER(flexGrow);
+ZELDA_FLOAT_PROPERTY_GETTER(flexShrink);
+ZELDA_YGVALUE_PROPERTY_GETTER(flexBasis);
 
-ZELDA_YGVALUE_PROPERTY(left);
-ZELDA_YGVALUE_PROPERTY(top);
-ZELDA_YGVALUE_PROPERTY(right);
-ZELDA_YGVALUE_PROPERTY(bottom);
-ZELDA_YGVALUE_PROPERTY(start);
-ZELDA_YGVALUE_PROPERTY(end);
+ZELDA_YGVALUE_PROPERTY_GETTER(left);
+ZELDA_YGVALUE_PROPERTY_GETTER(top);
+ZELDA_YGVALUE_PROPERTY_GETTER(right);
+ZELDA_YGVALUE_PROPERTY_GETTER(bottom);
+ZELDA_YGVALUE_PROPERTY_GETTER(start);
+ZELDA_YGVALUE_PROPERTY_GETTER(end);
 
-ZELDA_YGVALUE_PROPERTY(marginLeft);
-ZELDA_YGVALUE_PROPERTY(marginTop);
-ZELDA_YGVALUE_PROPERTY(marginRight);
-ZELDA_YGVALUE_PROPERTY(marginBottom);
-ZELDA_YGVALUE_PROPERTY(marginStart);
-ZELDA_YGVALUE_PROPERTY(marginEnd);
-ZELDA_YGVALUE_PROPERTY(marginHorizontal);
-ZELDA_YGVALUE_PROPERTY(marginVertical);
-ZELDA_YGVALUE_PROPERTY(margin);
+ZELDA_YGVALUE_PROPERTY_GETTER(marginLeft);
+ZELDA_YGVALUE_PROPERTY_GETTER(marginTop);
+ZELDA_YGVALUE_PROPERTY_GETTER(marginRight);
+ZELDA_YGVALUE_PROPERTY_GETTER(marginBottom);
+ZELDA_YGVALUE_PROPERTY_GETTER(marginStart);
+ZELDA_YGVALUE_PROPERTY_GETTER(marginEnd);
+ZELDA_YGVALUE_PROPERTY_GETTER(marginHorizontal);
+ZELDA_YGVALUE_PROPERTY_GETTER(marginVertical);
+ZELDA_YGVALUE_PROPERTY_GETTER(margin);
 
-ZELDA_YGVALUE_PROPERTY(paddingLeft);
-ZELDA_YGVALUE_PROPERTY(paddingTop);
-ZELDA_YGVALUE_PROPERTY(paddingRight);
-ZELDA_YGVALUE_PROPERTY(paddingBottom);
-ZELDA_YGVALUE_PROPERTY(paddingStart);
-ZELDA_YGVALUE_PROPERTY(paddingEnd);
-ZELDA_YGVALUE_PROPERTY(paddingHorizontal);
-ZELDA_YGVALUE_PROPERTY(paddingVertical);
-ZELDA_YGVALUE_PROPERTY(padding);
+ZELDA_YGVALUE_PROPERTY_GETTER(paddingLeft);
+ZELDA_YGVALUE_PROPERTY_GETTER(paddingTop);
+ZELDA_YGVALUE_PROPERTY_GETTER(paddingRight);
+ZELDA_YGVALUE_PROPERTY_GETTER(paddingBottom);
+ZELDA_YGVALUE_PROPERTY_GETTER(paddingStart);
+ZELDA_YGVALUE_PROPERTY_GETTER(paddingEnd);
+ZELDA_YGVALUE_PROPERTY_GETTER(paddingHorizontal);
+ZELDA_YGVALUE_PROPERTY_GETTER(paddingVertical);
+ZELDA_YGVALUE_PROPERTY_GETTER(padding);
 
-ZELDA_FLOAT_PROPERTY(borderLeftWidth);
-ZELDA_FLOAT_PROPERTY(borderTopWidth);
-ZELDA_FLOAT_PROPERTY(borderRightWidth);
-ZELDA_FLOAT_PROPERTY(borderBottomWidth);
-ZELDA_FLOAT_PROPERTY(borderStartWidth);
-ZELDA_FLOAT_PROPERTY(borderEndWidth);
-ZELDA_FLOAT_PROPERTY(borderWidth);
+ZELDA_FLOAT_PROPERTY_GETTER(borderLeftWidth);
+ZELDA_FLOAT_PROPERTY_GETTER(borderTopWidth);
+ZELDA_FLOAT_PROPERTY_GETTER(borderRightWidth);
+ZELDA_FLOAT_PROPERTY_GETTER(borderBottomWidth);
+ZELDA_FLOAT_PROPERTY_GETTER(borderStartWidth);
+ZELDA_FLOAT_PROPERTY_GETTER(borderEndWidth);
+ZELDA_FLOAT_PROPERTY_GETTER(borderWidth);
 
-ZELDA_YGVALUE_PROPERTY(width);
-ZELDA_YGVALUE_PROPERTY(height);
-ZELDA_YGVALUE_PROPERTY(minWidth);
-ZELDA_YGVALUE_PROPERTY(minHeight);
-ZELDA_YGVALUE_PROPERTY(maxWidth);
-ZELDA_YGVALUE_PROPERTY(maxHeight);
+ZELDA_YGPERCENTVALUE_PROPERTY_GETTER(width);
+ZELDA_YGPERCENTVALUE_PROPERTY_GETTER(height);
+ZELDA_YGPERCENTVALUE_PROPERTY_GETTER(minWidth);
+ZELDA_YGPERCENTVALUE_PROPERTY_GETTER(minHeight);
+ZELDA_YGPERCENTVALUE_PROPERTY_GETTER(maxWidth);
+ZELDA_YGPERCENTVALUE_PROPERTY_GETTER(maxHeight);
 
 
 - (void)applyLayout {

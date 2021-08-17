@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Zelda'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'Zelda是一个支持链式语法的FlexBox布局库。'
   s.description      = <<-DESC
                        Zelda是一个支持链式语法的FlexBox布局库，是针对YogaKit的二次封装，可以快速的让iOS原生开发人员使用FlexBox技术进行

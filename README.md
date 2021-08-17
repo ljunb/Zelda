@@ -15,6 +15,8 @@ pod 'Zelda'
 
 ## 简单使用
 ```objc
+#import <Zelda/UIView+Zelda.h>
+
 UIView *container = [UIView new];
 container.backgroundColor = UIColor.redColor;
 [self.view addSubview:container];
@@ -39,6 +41,21 @@ view2.zelda.height(30).width(30).marginHorizontal(10);
 [container.zelda applyLayout];
 ```
 
+以 `per_` 开头使用百分比数值：
+```objc
+UIView *view = [UIView new];
+// 代表宽高分别占据父组件的30%、10%
+view.zelda.per_width(30).per_height(10);
+```
+
+以 `zd_` 开头获取当前组件的布局数值：
+```objc
+UIView *view = [UIView new];
+view.zelda.width(30).height(30);
+CGFloat height = view.zelda.zd_height;
+// todo something...
+
+```
 ## 运行示例
 ```shell
 git clone git@github.com:ljunb/Zelda.git

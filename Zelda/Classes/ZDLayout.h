@@ -10,6 +10,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+#define ZELDA_YGVALUE_PROPERTY(property)            \
+- (ZDLayout *(^)(CGFloat value))property;           \
+- (CGFloat)zd_##property;
+
+#define ZELDA_YGPERCENTVALUE_PROPERTY(property)     \
+- (ZDLayout *(^)(CGFloat value))per_##property;     \
+ZELDA_YGVALUE_PROPERTY(property)
+
+
+#define ZELDA_FLOAT_PROPERTY(property)              \
+- (ZDLayout *(^)(CGFloat value))property;           \
+- (CGFloat)zd_##property;
+
+
 typedef NS_ENUM(NSUInteger, ZDDirection) {
     ZDDirectionInherit,
     ZDDirectionLTR,
@@ -81,52 +96,53 @@ typedef NS_ENUM(NSUInteger, ZDDisplay) {
 - (ZDLayout *(^)(ZDOverflow value))overflow;
 - (ZDLayout *(^)(ZDDisplay value))display;
 
-- (ZDLayout *(^)(CGFloat value))flex;
-- (ZDLayout *(^)(CGFloat value))flexGrow;
-- (ZDLayout *(^)(CGFloat value))flexShrink;
-- (ZDLayout *(^)(CGFloat value))flexBasis;
 
-- (ZDLayout *(^)(CGFloat value))left;
-- (ZDLayout *(^)(CGFloat value))top;
-- (ZDLayout *(^)(CGFloat value))right;
-- (ZDLayout *(^)(CGFloat value))bottom;
-- (ZDLayout *(^)(CGFloat value))start;
-- (ZDLayout *(^)(CGFloat value))end;
+ZELDA_FLOAT_PROPERTY(flex);
+ZELDA_FLOAT_PROPERTY(flexGrow);
+ZELDA_FLOAT_PROPERTY(flexShrink);
+ZELDA_YGVALUE_PROPERTY(flexBasis);
 
-- (ZDLayout *(^)(CGFloat value))marginLeft;
-- (ZDLayout *(^)(CGFloat value))marginTop;
-- (ZDLayout *(^)(CGFloat value))marginRight;
-- (ZDLayout *(^)(CGFloat value))marginBottom;
-- (ZDLayout *(^)(CGFloat value))marginStart;
-- (ZDLayout *(^)(CGFloat value))marginEnd;
-- (ZDLayout *(^)(CGFloat value))marginHorizontal;
-- (ZDLayout *(^)(CGFloat value))marginVertical;
-- (ZDLayout *(^)(CGFloat value))margin;
+ZELDA_YGVALUE_PROPERTY(left);
+ZELDA_YGVALUE_PROPERTY(top);
+ZELDA_YGVALUE_PROPERTY(right);
+ZELDA_YGVALUE_PROPERTY(bottom);
+ZELDA_YGVALUE_PROPERTY(start);
+ZELDA_YGVALUE_PROPERTY(end);
 
-- (ZDLayout *(^)(CGFloat value))paddingLeft;
-- (ZDLayout *(^)(CGFloat value))paddingTop;
-- (ZDLayout *(^)(CGFloat value))paddingRight;
-- (ZDLayout *(^)(CGFloat value))paddingBottom;
-- (ZDLayout *(^)(CGFloat value))paddingStart;
-- (ZDLayout *(^)(CGFloat value))paddingEnd;
-- (ZDLayout *(^)(CGFloat value))paddingHorizontal;
-- (ZDLayout *(^)(CGFloat value))paddingVertical;
-- (ZDLayout *(^)(CGFloat value))padding;
+ZELDA_YGVALUE_PROPERTY(marginLeft);
+ZELDA_YGVALUE_PROPERTY(marginTop);
+ZELDA_YGVALUE_PROPERTY(marginRight);
+ZELDA_YGVALUE_PROPERTY(marginBottom);
+ZELDA_YGVALUE_PROPERTY(marginStart);
+ZELDA_YGVALUE_PROPERTY(marginEnd);
+ZELDA_YGVALUE_PROPERTY(marginHorizontal);
+ZELDA_YGVALUE_PROPERTY(marginVertical);
+ZELDA_YGVALUE_PROPERTY(margin);
 
-- (ZDLayout *(^)(CGFloat value))borderLeftWidth;
-- (ZDLayout *(^)(CGFloat value))borderTopWidth;
-- (ZDLayout *(^)(CGFloat value))borderRightWidth;
-- (ZDLayout *(^)(CGFloat value))borderBottomWidth;
-- (ZDLayout *(^)(CGFloat value))borderStartWidth;
-- (ZDLayout *(^)(CGFloat value))borderEndWidth;
-- (ZDLayout *(^)(CGFloat value))borderWidth;
+ZELDA_YGVALUE_PROPERTY(paddingLeft);
+ZELDA_YGVALUE_PROPERTY(paddingTop);
+ZELDA_YGVALUE_PROPERTY(paddingRight);
+ZELDA_YGVALUE_PROPERTY(paddingBottom);
+ZELDA_YGVALUE_PROPERTY(paddingStart);
+ZELDA_YGVALUE_PROPERTY(paddingEnd);
+ZELDA_YGVALUE_PROPERTY(paddingHorizontal);
+ZELDA_YGVALUE_PROPERTY(paddingVertical);
+ZELDA_YGVALUE_PROPERTY(padding);
 
-- (ZDLayout *(^)(CGFloat value))width;
-- (ZDLayout *(^)(CGFloat value))height;
-- (ZDLayout *(^)(CGFloat value))minWidth;
-- (ZDLayout *(^)(CGFloat value))minHeight;
-- (ZDLayout *(^)(CGFloat value))maxWidth;
-- (ZDLayout *(^)(CGFloat value))maxHeight;
+ZELDA_FLOAT_PROPERTY(borderLeftWidth);
+ZELDA_FLOAT_PROPERTY(borderTopWidth);
+ZELDA_FLOAT_PROPERTY(borderRightWidth);
+ZELDA_FLOAT_PROPERTY(borderBottomWidth);
+ZELDA_FLOAT_PROPERTY(borderStartWidth);
+ZELDA_FLOAT_PROPERTY(borderEndWidth);
+ZELDA_FLOAT_PROPERTY(borderWidth);
+
+ZELDA_YGPERCENTVALUE_PROPERTY(width);
+ZELDA_YGPERCENTVALUE_PROPERTY(height);
+ZELDA_YGPERCENTVALUE_PROPERTY(minWidth);
+ZELDA_YGPERCENTVALUE_PROPERTY(minHeight);
+ZELDA_YGPERCENTVALUE_PROPERTY(maxWidth);
+ZELDA_YGPERCENTVALUE_PROPERTY(maxHeight);
 
 - (void)applyLayout;
 - (void)applyLayoutPreservingOrigin:(BOOL)preserveOrigin;
